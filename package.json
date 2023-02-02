@@ -5,5 +5,26 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.0"
-  }
+  },    
+  "name": "auth",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pratikjadhav9123/auth_jwt_token.git"
+  },
+  "author": "pratik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pratikjadhav9123/auth_jwt_token/issues"
+  },
+  "homepage": "https://github.com/Pratikjadhav9123/auth_jwt_token#readme",
+  "description": ""
 }

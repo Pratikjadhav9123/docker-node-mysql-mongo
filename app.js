@@ -22,11 +22,12 @@ json_parser = body_parser.json();
 
 
 
-mongoose.connect("mongodb://localhost:27017/auth_db", {
+mongoose.connect("mongodb://mongo/mongo_database", {
     useNewUrlParser:true,
     useUnifiedTopology:true
-}).then (()=>{
-    console.log("connected to db");
+}).then ((e)=>{
+    console.log("connected to dbbbbbbbbb");
+    console.log(e);
 })
 
 //saying hello
@@ -95,7 +96,7 @@ const user = new User({
 })
 
 user.save().then((result)=>{
-    console.log("save scucceeesfully")
+    console.log("save scucceeesfullyuuuuuuuuuu")
     console.log(result);
 
     res.send(` successfully registered as ${user} `)
@@ -462,8 +463,8 @@ app.post('/update_user_profile/:user_id', json_parser,auth_token,function(req, r
 })
 
 
+const port = process.env.PORT || 3000
 
-
-port = 5000;
+//port = 5000;
 app.listen(port);
 
