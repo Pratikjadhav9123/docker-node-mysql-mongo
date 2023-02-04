@@ -13,3 +13,5 @@ const User_schema=new mongoose.Schema({
 
 
 module.exports=mongoose.model('User',User_schema);
+
+// mongoose.model('pratik',User_schema);
