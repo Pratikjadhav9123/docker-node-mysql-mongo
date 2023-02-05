@@ -1,20 +1,20 @@
 const express = require("express");
-//const mongoose = require("mongoose");
-//const body_parser = require("body-parser");
 
 const mysql = require("mysql2");
 
 
 const connection = mysql.createConnection({
-    host: "mysql",
+    host:'172.17.0.3',
+    //  for docker -------
+    // host: "mysql",
     user: "root",
-    password: "Pratik@123",
+    password: "123456",
     database: "node_app"
 
 })
 connection.connect((err, result) => {
     if (err) {
-        console.log(err);
+        console.log("err while connection");
     }
     else console.log("connected to sql ")
 })
@@ -39,6 +39,8 @@ async function get_tables() {
 
 
 async function save(user_name, password) {
+
+    console.log("enter in save")
 
     const result = connection.promise().query(`insert into password_token(user_name,password) value(?,?)`, [user_name, password]
 
