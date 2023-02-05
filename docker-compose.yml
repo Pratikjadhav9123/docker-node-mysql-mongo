@@ -19,8 +19,11 @@ services:
     restart: always
     environment:
        MYSQL_ROOT_PASSWORD: "Pratik@123"
+    volumes:
+      - mysql_db:/var/lib/mysql
 
    
     
 volumes:
   mongo_db:
+  mysql_db:

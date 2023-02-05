@@ -39,7 +39,7 @@ mongoose.connect("mongodb://mongo/mongo_database", {
     useUnifiedTopology:true
 }).then ((e)=>{
     console.log("connected to dbbbbbbbbb");
-    console.log(e);
+    // console.log(e);
 })
 
 //saying hello
