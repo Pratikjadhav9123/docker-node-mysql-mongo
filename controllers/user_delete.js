@@ -39,7 +39,7 @@ const user_delete = (req, res) => {
                     res.json(delete_user);
                 } catch (error) {
 
-                    res.send("error while deleting data")
+                    res.send(" wrong entered user_id");
                 }
             }
 

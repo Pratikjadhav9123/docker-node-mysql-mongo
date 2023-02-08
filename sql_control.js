@@ -4,11 +4,11 @@ const mysql = require("mysql2");
 
 
 const connection = mysql.createConnection({
-    host:'172.17.0.3',
+    host:'mysql',
     //  for docker -------
     // host: "mysql",
     user: "root",
-    password: "123456",
+    password: "Pratik@123",
     database: "node_app"
 
 })
@@ -44,29 +44,11 @@ async function save(user_name, password) {
 
     const result = connection.promise().query(`insert into password_token(user_name,password) value(?,?)`, [user_name, password]
 
-        // (err, data) => {
-
-        //     if (err) {
-
-        //         console.log(err);
-        //     }
-        //     else {
-
-        //         console.log("save succussfully pass and user name in sql....");
-        //         //res.send("reg succees fully")
-        //     }
-        // }
-
-
+        
 
     )
     return result;
 }
-
-
-
-
-
 
 
 
@@ -104,6 +86,15 @@ async function get_perticular_User(user_name) {
 
 
 }
+
+
+
+// async function get_user_token (user_name){
+
+//     const result =await connection.promise().query(`select token from `)
+
+
+// }
 
 async function update_password(update_password,user_name){
 

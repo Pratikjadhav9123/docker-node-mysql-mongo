@@ -22,6 +22,8 @@ const all_user= (req, res) => {
 
     jwt.verify(req.token, jwt_key, async (err, auth_data) => {
 
+        
+
         if (err) {
             console.log("you dont have valid token ......!")
             res.json({ result: err })

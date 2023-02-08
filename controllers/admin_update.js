@@ -47,24 +47,52 @@ const admin_update = function (req, res) {
 
                 };
 
-                updating_user = await User.findById({ _id: req.params.user_id });
+                var user_id_flag = 0;
+
+                updating_user = await User.findById({ _id: req.params.user_id }).then(() => {
+
+                    user_id_flag = 1;
+                    // console.log(r)
+
+                }).catch(() => {
+
+                    user_id_flag = 0;
+                });
+
+
+                console.log(updating_user);
 
                 console.log("hiiiiii")
 
-                if (updating_user.username == user.username) {         // in schema i have write username insted of user_name
- 
+                if (user_id_flag) {
 
-                    const update_user = await User.findByIdAndUpdate(
-                        {
-                            _id: req.params.user_id
-                        }, user  // here updating the student 
+                    updating_user = await User.findById({ _id: req.params.user_id })
 
-                    );
+                    if (updating_user.username == user.username ) {         // in schema i have write username insted of user_name
 
-                    res.json(update_user);
+                        if(user.role == "admin" || user.role == "user"){
+
+                        const update_user = await User.findByIdAndUpdate(
+                            {
+                                _id: req.params.user_id
+                            }, user  // here updating the student 
+
+                        );
+
+                        res.json(update_user);
+                        }
+                        else{
+                         res.send("wrong entered role ..!!!!!!");
+
+                        }
+                    }
+                    else {
+                        res.send(" error:u can't update user name.....!!!!!!");
+                    }
                 }
-                else {
-                    res.send(" error:u can't update user name.....!!!!!!");
+                else{
+                    res.send("wrong user_id entered.....!!!!!!!!");
+                    console.log("wrong entered user_id..!!!!!!");
                 }
             }
 

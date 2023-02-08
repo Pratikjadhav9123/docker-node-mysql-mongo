@@ -22,17 +22,21 @@ const user_login = (req, res) => {
 
     console.log("enter in login ")
 
+
     // checking username in  mysql database ------
 
     mysql.get_perticular_User(req.body.username).then((result) => {
 
         // making data model for jwt token to used -----
+        
 
         var data = {
 
             user_name: result[0].user_name,
             password: result[0].password
         }
+
+
 
 
         // creating decryption model --------
@@ -94,7 +98,10 @@ const user_login = (req, res) => {
 }
 
 
+
+
 module.exports = {
     
-    user_login
+    user_login,
+    
 } 
